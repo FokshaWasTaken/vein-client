@@ -7,6 +7,11 @@ import me.x150.renderer.event.EventType;
 import me.x150.renderer.event.Shift;
 import me.x150.renderer.event.events.RenderEvent;
 import me.x150.renderer.renderer.MSAAFramebuffer;
+import me.x150.renderer.renderer.Renderer3d;
+import me.x150.renderer.renderer.color.Color;
+import me.x150.renderer.renderer.font.TTFFontRenderer;
+
+import java.awt.*;
 
 public class EventHandler {
     @EventListener(value = EventType.WORLD_RENDER, shift = Shift.POST)
@@ -29,6 +34,7 @@ public class EventHandler {
             }
         }
         });
+
     }
 
 

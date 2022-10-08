@@ -23,11 +23,11 @@ public class ToggleCommand extends Command {
 
         for (Module module : ModuleRegistry.getModules()) {
             if (module.name.equalsIgnoreCase(moduleName)) {
-                    module.setEnabled(!module.isEnabled());
-                    MinecraftClient.getInstance().player.sendMessage(Text.of("Toggled " + module.name + " to " + module.isEnabled()));
-                    return;
-                }
+                module.setEnabled(!module.isEnabled());
+                MinecraftClient.getInstance().player.sendMessage(Text.of("Toggled " + module.name + " to " + module.isEnabled()));
+                return;
+            }
+        }
             MinecraftClient.getInstance().player.sendMessage(Text.of("Module " + moduleName + " not found"));
         }
     }
-}

@@ -15,6 +15,7 @@ public class ModuleRegistry {
         modules.add(new FreezeModule());
         modules.add(new NoRenderModule());
         modules.add(new ESPModule());
+        modules.add(new ClientInfoModule());
         // ..
     }
 
