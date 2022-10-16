@@ -9,6 +9,7 @@ import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.Box;
@@ -44,17 +45,25 @@ public class ESPModule extends Module {
 
         Vec3d pos = Vein.client.player.getPos();
         ClientWorld world = MinecraftClient.getInstance().world;
-        Entity playerEntity = Vein.client.player;
-
+        PlayerEntity playerEntity = Vein.client.player;
+        PlayerEntity player = world.getClosestPlayer(playerEntity, 200);
+        if (player != playerEntity) {
+            System.out.println("Current player " + player.getName());
+            System.out.println("Current Armor Items: " + player.getArmorItems());
+            System.out.println("Current X: " + player.getX() + "Current Y: " + player.getY() + "Current Z:" + player.getZ());
+        }
 
 
         // draw a box around all entities ONLY if they're in a 10 block radius
-        for (Entity entity : world.getEntities()) {
+   /*     for (Entity entity : world.getEntities()) {
             if (entity.distanceTo(playerEntity) < 10) {
                 System.out.println("Entity: " + entity.getName().toString());
                 Renderer3d.renderLine(pos, entity.getPos(), Color.RED);
             }
+
+
         }
+*/
 
 
     }
